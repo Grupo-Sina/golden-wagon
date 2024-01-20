@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "eds-vagao-de-ouro",
+  "private_key_id": "54533832a17ca48aa3b95df163acac213cd26e89",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC8WweYzAxMNXkh\nb/JPV9nZyLRBOsAJl0dIgtJ2PzTuIYDwSroKRV0KXuvu93F0ycGECZmkeGV3D9T+\nv4r1RzT5edV+178VKg+cMU/IN8wBE4h+fT+Cswo4uMxVo+ynLWbHcAVT7bSLrvZJ\nEo9CRFVh8hs/jKmwXwNJKld8pkra/DU6x78fjHMOTFvNY+rlDoXJXEAN5dp5DaY6\niNkujR/nOBLYJED/B1UeSq0K1hdCg4W1JqfapZNKyqedPS0pyOavEZCSfObMSR1A\nkWEDf5rMz/o3gGvfWQbz7vWrpdvwyz3ecHI8M/YmoDdUrlkSmQZ4EooV4BEMVAZT\nTJJpxjOvAgMBAAECggEACmDNo1qi1tQfb3s2k66Yf0pyvCFbkWu3bsReiktjRDeu\nXg8P/x7hSIAAafNSWgf/1KGeyJQlqxDBQKQXKPqabaCL5ehHTAg8QfPpnHOOlwSX\ngbiu9imdR5DPGWzlzjRPNG/0qzIuv3+NbGtMX29acQIhBDhg5SnnCXH+zgxvlW81\n2Clp323+74it5NHEyon9eDQqUy49ZYnBh9InsWFJx8WqzCMbsbwf8NaoI6D8bTmP\nn/S8aYeKvCbMWlIKfSkpnSfHayB911k8O26IQDjL+jrfweXm1Gup2YEe4uIgLdvE\nI7HGs5E0kdWk5bVMDA51j42gTrpjmeLxN7jzjgB76QKBgQDng2ezq2kWGtuIqkLG\nOcW6ODZ+GVk10PIJNCZYWUCZMTsQxoF8eN+c/4kaXYXMOdGYSszTYEBgBdrm2nP/\nCwnMu8HgQb4suKdsTaL81BsNVdJgm7Tko7iwOD/C42M89Tr+9zwoUGd1QNQM2ZqZ\nOySxx8ejN5dYbB9rZRb7hh5CCwKBgQDQRw9dRuqxRx+eyB/3NDJ2etdz4DvIVRRg\nlPnTmZtrn/qy9upP6eqhlAtOB+htwd9PfysVnH+yMTCoFMhp8NThx4qh3A8fm+Kp\nCEmDZWk3rjpbhWqigSOLm8ixVCJcDzSCJjxFknp4CHMkN5JiYKuVsrCTC7+6zdKx\nSTnSzGZfbQKBgQC2fQsiQewsw3Dm8iZ+cA2e8y5pCXwbgp82iAftvjTATGEdoQty\nXSkObRLaWHvd9nlzTQrVV1qHFjZtoCatFDteSWXSaqAISmmWYkAmgN7uDQcupa3a\nR/+N0FjaOzj/VOJzFdkygeZ7M2Wy11gYjtkm1a5Uxr4isd+2XNHX4+k37wKBgFLU\nH7EZtdYAkfukXMoDsRnbKnnDsCKwayUpudzD1sJLYfjwJyjWvt+5L3G9xVp44mUM\nDsdOcJ4d39rIQReYliCgKWrLSBxq8w4D5LBjkR96o2yoN0sfDlLEBmE3M17nERu9\nNvT4FspLmfbKPuXuye4DnSMtZfdVSTgGBf/mF8RVAoGBALcqsOt4IulLZxcsoqge\nP7NiwZ2fyHlFf8FYVzbYugCoJ4v3HLWwogOie9bqBCVJ0s5ZmswpyidmyZITMEyW\nDv118DAoKFhrficGyYL3ZqyuNLvpa8tJycCPbi5EcxfRH9noyW6eApnTgM5yFBV2\n3lRP38u7bSzqkJrhyv+xv/7n\n-----END PRIVATE KEY-----\n",
+  "client_email": "spreadsheet@eds-vagao-de-ouro.iam.gserviceaccount.com",
+  "client_id": "110552700037060451190",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/spreadsheet%40eds-vagao-de-ouro.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
