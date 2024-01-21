@@ -5,6 +5,7 @@ import bigescudozl from '../../public/bigescudozl.png'
 import React from 'react'
 import { Button, useDisclosure } from '@nextui-org/react'
 import CustomModal from './components/CustomModal/CustomModal'
+import { url } from 'inspector'
 
 export default function Home() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
