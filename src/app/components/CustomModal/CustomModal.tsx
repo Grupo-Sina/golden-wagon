@@ -75,7 +75,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
     }
 
     const rawResponse = await fetch(
-      'https://golden-wagon.vercel.app/api/submit',
+      'https://www.muitomaisquevarzea.com/api/submit',
       {
         method: 'POST',
         headers: {
