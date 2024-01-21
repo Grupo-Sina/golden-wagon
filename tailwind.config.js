@@ -20,7 +20,7 @@ module.exports = {
       },
       backgroundImage: {
         'noise-effect': "url('/noise.png')",
-        'golden': "url('/golden.png')",
+        golden: "url('/golden.png')",
       },
       fontFamily: {
         headingExtraLight: ['Heading Pro Trial Extra Light', 'sans-serif'],

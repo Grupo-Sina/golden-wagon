@@ -74,14 +74,17 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
       telefone: phoneNumber,
     }
 
-    const rawResponse = await fetch('https://www.muitomaisquevarzea.com/api/submit', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+    const rawResponse = await fetch(
+      'https://www.muitomaisquevarzea.com/api/submit',
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(goofleFormObject),
       },
-      body: JSON.stringify(goofleFormObject),
-    })
+    )
 
     try {
       const content = await rawResponse.json()
