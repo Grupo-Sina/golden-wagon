@@ -74,7 +74,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
       telefone: phoneNumber,
     }
 
-    const rawResponse = await fetch('http://localhost:3000/api/submit', {
+    const rawResponse = await fetch('https://golden-wagon-dbtxe4n9q-sina-company.vercel.app/api/submit', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
