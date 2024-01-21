@@ -1,47 +1,47 @@
-"use client";
+'use client'
 
-import { Button, Input } from "@nextui-org/react";
-import { FormEvent, useState } from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Button, Input } from '@nextui-org/react'
+import { FormEvent, useState } from 'react'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Form = () => {
-  const [userName, setUserName] = useState<string>("");
-  const [cellphone, setCellphone] = useState<string>("");
+  const [userName, setUserName] = useState<string>('')
+  const [cellphone, setCellphone] = useState<string>('')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const goofleFormObject = {
       username: userName,
       telefone: cellphone,
-    };
+    }
 
-    const rawResponse = await fetch("http://localhost:3000/api/submit", {
-      method: "POST",
+    const rawResponse = await fetch('http://localhost:3000/api/submit', {
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(goofleFormObject),
-    });
+    })
 
     try {
-      const content = await rawResponse.json();
+      const content = await rawResponse.json()
 
       if (content.data === undefined) {
-        toast.error("O usuário já está cadastrado para o sorteio.");
-        setUserName("");
-        setCellphone("");
+        toast.error('O usuário já está cadastrado para o sorteio.')
+        setUserName('')
+        setCellphone('')
       } else {
-        toast.success("Usuário registrado para o sorteio com sucesso!!");
-        setUserName("");
-        setCellphone("");
+        toast.success('Usuário registrado para o sorteio com sucesso!!')
+        setUserName('')
+        setCellphone('')
       }
     } catch (error) {
-      toast.error("Erro ao processar a resposta do servidor.");
+      toast.error('Erro ao processar a resposta do servidor.')
     }
-  };
+  }
 
   return (
     <form
@@ -80,7 +80,7 @@ const Form = () => {
         <h1 className="text-lg text-yellow-400">{`${cellphone}`}</h1>
       )}
     </form>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

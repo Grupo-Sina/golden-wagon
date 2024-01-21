@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import bigescudozl from "../../public/bigescudozl.png";
-import React from "react";
-import { Button, useDisclosure } from "@nextui-org/react";
-import CustomModal from "./components/CustomModal/CustomModal";
+import Image from 'next/image'
+import bigescudozl from '../../public/bigescudozl.png'
+import React from 'react'
+import { Button, useDisclosure } from '@nextui-org/react'
+import CustomModal from './components/CustomModal/CustomModal'
 
 export default function Home() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
   return (
     <main className="flex flex-col px-10 md:pl-36">
@@ -28,12 +28,12 @@ export default function Home() {
       </div>
 
       <p className="w-full md:w-[50%] text-justify text-[#222222] font-robotoRegular text-[18px] sm:text-[24px] desktop:text-[32px]">
-        A abertura da{" "}
+        A abertura da{' '}
         <span className="font-robotoBold">Super Copa Zona Leste</span> tá
-        chegando daquele jeito! E pra ficar melhor ainda, você pode concorrer a{" "}
+        chegando daquele jeito! E pra ficar melhor ainda, você pode concorrer a{' '}
         <span className="font-robotoBold">
           1 Iphone e 10 bancas de R$10,00 na Esportes da Sorte!
-        </span>{" "}
+        </span>{' '}
         Coisa linda!
       </p>
 
@@ -47,5 +47,5 @@ export default function Home() {
       </Button>
       <CustomModal isOpen={isOpen} onClose={onOpenChange} />
     </main>
-  );
+  )
 }

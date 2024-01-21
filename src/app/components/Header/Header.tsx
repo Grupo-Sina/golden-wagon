@@ -1,17 +1,16 @@
-import Image from "next/image";
-import escudozl from "../../../../public/escudozl.png";
-import edslogo from "../../../../public/edslogo.png";
-import React from "react";
-import { Button, useDisclosure } from "@nextui-org/react";
-import CustomModal from "../CustomModal/CustomModal";
+import Image from 'next/image'
+import escudozl from '../../../../public/escudozl.png'
+import edslogo from '../../../../public/edslogo.png'
+import React from 'react'
+import { Button, useDisclosure } from '@nextui-org/react'
+import CustomModal from '../CustomModal/CustomModal'
 
 const Header = () => {
-
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
   return (
     <header className="relative z-20 w-screen h-24 bg-[#C89A3D] flex justify-around items-center">
-      <Image src={escudozl} alt="escudozl" className="hidden sm:flex"/>
+      <Image src={escudozl} alt="escudozl" className="hidden sm:flex" />
       <Image src={edslogo} alt="edslogo" />
       <Button
         onPress={onOpen}
@@ -21,9 +20,9 @@ const Header = () => {
       >
         PARTICIPE AGORA
       </Button>
-      <CustomModal isOpen={isOpen} onClose={onOpenChange}/>
+      <CustomModal isOpen={isOpen} onClose={onOpenChange} />
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

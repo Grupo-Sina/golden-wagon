@@ -1,9 +1,9 @@
-import Image from "next/image";
-import edslogofooter from "../../../../public/edslogofooter.png";
-import twittericon from "../../../../public/twittericon.png";
-import youtubeicon from "../../../../public/youtubeicon.png";
-import instaicon from "../../../../public/instaicon.png";
-import Link from "next/link";
+import Image from 'next/image'
+import edslogofooter from '../../../../public/edslogofooter.png'
+import twittericon from '../../../../public/twittericon.png'
+import youtubeicon from '../../../../public/youtubeicon.png'
+import instaicon from '../../../../public/instaicon.png'
+import Link from 'next/link'
 
 const Footer = () => {
   return (
@@ -52,7 +52,7 @@ const Footer = () => {
         </Link>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

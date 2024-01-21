@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
 // import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
-import "./globals.css";
-import { NextUIProvider } from "@nextui-org/react";
-import Form from "./components/Form/Form";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Image from "next/image";
-import hashtag from "../../public/hashtag.png";
-import money from "../../public/money.png";
-import xelement from "../../public/xelement.png";
-import metro from "../../public/metro.png";
+import './globals.css'
+import { NextUIProvider } from '@nextui-org/react'
+import Form from './components/Form/Form'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import Image from 'next/image'
+import hashtag from '../../public/hashtag.png'
+import money from '../../public/money.png'
+import xelement from '../../public/xelement.png'
+import metro from '../../public/metro.png'
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +25,7 @@ import metro from "../../public/metro.png";
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -55,7 +55,7 @@ export default function RootLayout({
           />
           <div
             className="relative z-40 w-screen flex-1 bg-noise-effect flex items-center justify-center"
-            style={{ minHeight: "calc(100vh - 236px)" }}
+            style={{ minHeight: 'calc(100vh - 236px)' }}
           >
             {children}
           </div>
@@ -63,5 +63,5 @@ export default function RootLayout({
         </NextUIProvider>
       </body>
     </html>
-  );
+  )
 }

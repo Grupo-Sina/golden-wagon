@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from 'react'
 import {
   Modal,
   ModalContent,
@@ -9,60 +9,60 @@ import {
   Input,
   Checkbox,
   Spinner,
-} from "@nextui-org/react";
-import Link from "next/link";
-import { questions } from "@/app/utils/questions";
-import { toast } from "react-toastify";
-import finishformlogo from "../../../../public/finishformlogo.png";
-import Image from "next/image";
+} from '@nextui-org/react'
+import Link from 'next/link'
+import { questions } from '@/app/utils/questions'
+import { toast } from 'react-toastify'
+import finishformlogo from '../../../../public/finishformlogo.png'
+import Image from 'next/image'
 
 interface CustomModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen: boolean
+  onClose: () => void
 }
 
 interface Question {
-  id: number;
-  content: string;
-  noOptionTitle: string;
-  noOptionDescription: string;
+  id: number
+  content: string
+  noOptionTitle: string
+  noOptionDescription: string
 }
 
 const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
-  const [isYesChecked, setIsYesChecked] = useState<boolean>(false);
-  const [isNoChecked, setIsNoChecked] = useState<boolean>(false);
-  const [questionIndex, setQuestionIndex] = useState<number>(0);
-  const [username, setUsername] = useState<string>("");
-  const [phoneNumber, setPhoneNumber] = useState<string>("");
-  const [isSubmitEnabled, setIsSubmitEnabled] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>();
+  const [isYesChecked, setIsYesChecked] = useState<boolean>(false)
+  const [isNoChecked, setIsNoChecked] = useState<boolean>(false)
+  const [questionIndex, setQuestionIndex] = useState<number>(0)
+  const [username, setUsername] = useState<string>('')
+  const [phoneNumber, setPhoneNumber] = useState<string>('')
+  const [isSubmitEnabled, setIsSubmitEnabled] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>()
   const [submissionStatus, setSubmissionStatus] = useState<
-    "pending" | "success"
-  >("pending");
+    'pending' | 'success'
+  >('pending')
 
   const handleYHes = () => {
-    setIsYesChecked(true);
-    setIsNoChecked(false);
-  };
+    setIsYesChecked(true)
+    setIsNoChecked(false)
+  }
 
   const handleNo = () => {
-    setIsYesChecked(false);
-    setIsNoChecked(true);
-  };
+    setIsYesChecked(false)
+    setIsNoChecked(true)
+  }
 
   const handleNextQuestion = () => {
     if (questionIndex < questions.length - 1) {
-      setQuestionIndex((prevIndex) => prevIndex + 1);
-      setIsYesChecked(false);
-      setIsNoChecked(false);
+      setQuestionIndex((prevIndex) => prevIndex + 1)
+      setIsYesChecked(false)
+      setIsNoChecked(false)
     } else {
-      setSubmissionStatus("success");
+      setSubmissionStatus('success')
     }
-  };
+  }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
+    e.preventDefault()
+    setIsLoading(true)
 
     // if (username.length < 3) {
     //   // You can show a message to the user or handle it in your UI
@@ -72,58 +72,63 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
     const goofleFormObject = {
       username,
       telefone: phoneNumber,
-    };
+    }
 
-    const rawResponse = await fetch("http://localhost:3000/api/submit", {
-      method: "POST",
+    const rawResponse = await fetch('http://localhost:3000/api/submit', {
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(goofleFormObject),
-    });
+    })
 
     try {
-      const content = await rawResponse.json();
+      const content = await rawResponse.json()
       // console.log(content);
       // console.log(content.data);
 
       if (content.data === undefined) {
-        toast.error("O usuário já está cadastrado para o sorteio.");
-        setUsername("");
-        setPhoneNumber("");
-        setIsLoading(false);
+        toast.error('O usuário já está cadastrado para o sorteio.')
+        setUsername('')
+        setPhoneNumber('')
+        setIsLoading(false)
       } else {
-        toast.success("Usuário registrado para o sorteio com sucesso!!");
-        setUsername("");
-        setPhoneNumber("");
-        setIsLoading(false);
-        setSubmissionStatus("success");
+        toast.success('Usuário registrado para o sorteio com sucesso!!')
+        setUsername('')
+        setPhoneNumber('')
+        setIsLoading(false)
+        setSubmissionStatus('success')
       }
     } catch (error) {
-      toast.error("Erro ao processar a resposta do servidor.");
-      setIsLoading(false);
+      toast.error('Erro ao processar a resposta do servidor.')
+      setIsLoading(false)
     }
-  };
+  }
 
   useEffect(() => {
-    setIsSubmitEnabled(username.length > 3);
-  }, [username]);
+    setIsSubmitEnabled(username.length > 3)
+  }, [username])
 
   useEffect(() => {
     if (isOpen) {
-      setQuestionIndex(0);
-      setIsYesChecked(false);
-      setIsNoChecked(false);
-      setUsername("");
-      setPhoneNumber("");
-      setIsSubmitEnabled(false);
-      setSubmissionStatus("pending");
+      setQuestionIndex(0)
+      setIsYesChecked(false)
+      setIsNoChecked(false)
+      setUsername('')
+      setPhoneNumber('')
+      setIsSubmitEnabled(false)
+      setSubmissionStatus('pending')
     }
-  }, [isOpen]);
+  }, [isOpen])
 
   return (
-    <Modal isOpen={isOpen} onOpenChange={onClose} size="4xl" scrollBehavior="outside">
+    <Modal
+      isOpen={isOpen}
+      onOpenChange={onClose}
+      size="4xl"
+      scrollBehavior="outside"
+    >
       <ModalContent className="bg-[#222222] p-3 sm:p-12">
         {(onClose) => (
           <>
@@ -132,13 +137,13 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                 Vagão de Ouro
               </p>
               <h1 className="text-[24px] font-montserratBold text-white">
-                {submissionStatus === "pending"
-                  ? "COMO PARTICIPAR?"
-                  : "AGORA É SÓ ESPERAR E TORCER!"}
+                {submissionStatus === 'pending'
+                  ? 'COMO PARTICIPAR?'
+                  : 'AGORA É SÓ ESPERAR E TORCER!'}
               </h1>
             </ModalHeader>
             <ModalBody>
-              {submissionStatus === "pending" ? (
+              {submissionStatus === 'pending' ? (
                 <>
                   <p className="font-montserratLight text-[16px] text-white font-normal text-justify">
                     Para participar, é bem fácil! Você deve ter um cadastro na
@@ -179,7 +184,8 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                           size="sm"
                           className="w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-white"
                         >
-                          ENVIAR {" "} {isLoading && <Spinner color="default" size="sm" />}
+                          ENVIAR{' '}
+                          {isLoading && <Spinner color="default" size="sm" />}
                         </Button>
                       </form>
                     ) : (
@@ -190,7 +196,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                           radius="full"
                           className="font-montserratLight text-white text-[13px]"
                           classNames={{
-                            label: "text-white",
+                            label: 'text-white',
                           }}
                         >
                           SIM
@@ -201,7 +207,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                           radius="full"
                           className="font-montserratLight text-white text-[13px]"
                           classNames={{
-                            label: "text-white",
+                            label: 'text-white',
                           }}
                         >
                           NÃO
@@ -211,8 +217,15 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
 
                     {isNoChecked && (
                       <div>
-                        <h1 className="text-white font-montserratBold text-[18px]">{questions[questionIndex].noOptionTitle}</h1>
-                        <p className="text-white text-[16px] font-montserratLight"><span className="text-[#DA1414] text-[16px] font-montserrat">*</span>{questions[questionIndex].noOptionDescription}</p>
+                        <h1 className="text-white font-montserratBold text-[18px]">
+                          {questions[questionIndex].noOptionTitle}
+                        </h1>
+                        <p className="text-white text-[16px] font-montserratLight">
+                          <span className="text-[#DA1414] text-[16px] font-montserrat">
+                            *
+                          </span>
+                          {questions[questionIndex].noOptionDescription}
+                        </p>
                       </div>
                     )}
                   </div>
@@ -220,9 +233,12 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
               ) : (
                 <div className="space-y-6">
                   <p className="font-montserratLight text-[16px] text-white font-normal text-justify">
-                    Os sorteios vão rolar na abertura da <span className="font-montserratBold">Super Copa Zona Leste
-                    no dia 25/01</span>, durante a live do Youtube, no canal da Várzea
-                    Ao Vivo, agora é só torcer! E não fica moscando! Quanto mais
+                    Os sorteios vão rolar na abertura da{' '}
+                    <span className="font-montserratBold">
+                      Super Copa Zona Leste no dia 25/01
+                    </span>
+                    , durante a live do Youtube, no canal da Várzea Ao Vivo,
+                    agora é só torcer! E não fica moscando! Quanto mais
                     depósitos você fizer, mais chances tem de ganhar!
                   </p>
                   <Image src={finishformlogo} alt="finishformlogo" />
@@ -230,7 +246,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
               )}
             </ModalBody>
             <ModalFooter>
-              {submissionStatus === "pending" && (
+              {submissionStatus === 'pending' && (
                 <>
                   {isYesChecked && (
                     <Button
@@ -263,7 +279,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
         )}
       </ModalContent>
     </Modal>
-  );
-};
+  )
+}
 
-export default CustomModal;
+export default CustomModal
