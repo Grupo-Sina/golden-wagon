@@ -46,7 +46,7 @@ export default function RootLayout({
           <Image
             src={money}
             alt="money icon"
-            className="absolute top-20 right-[560px]"
+            className="hidden xl:flex absolute top-20 right-[560px]"
           />
           <Image
             src={xelement}

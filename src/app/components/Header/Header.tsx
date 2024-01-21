@@ -11,13 +11,13 @@ const Header = () => {
 
   return (
     <header className="relative z-20 w-screen h-24 bg-[#C89A3D] flex justify-around items-center">
-      <Image src={escudozl} alt="escudozl" />
+      <Image src={escudozl} alt="escudozl" className="hidden sm:flex"/>
       <Image src={edslogo} alt="edslogo" />
       <Button
         onPress={onOpen}
         size="sm"
         radius="full"
-        className="bg-[#222222] text-white py-3 px-8 font-headingBold text-[16px] hover:bg-white hover:text-[#222222]"
+        className="hidden sm:flex bg-[#222222] text-white py-3 px-8 font-headingBold text-[16px] hover:bg-white hover:text-[#222222]"
       >
         PARTICIPE AGORA
       </Button>

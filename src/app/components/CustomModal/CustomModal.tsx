@@ -123,8 +123,8 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
   }, [isOpen]);
 
   return (
-    <Modal isOpen={isOpen} onOpenChange={onClose} size="4xl">
-      <ModalContent className="bg-[#222222] p-12">
+    <Modal isOpen={isOpen} onOpenChange={onClose} size="4xl" scrollBehavior="outside">
+      <ModalContent className="bg-[#222222] p-3 sm:p-12">
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1">
