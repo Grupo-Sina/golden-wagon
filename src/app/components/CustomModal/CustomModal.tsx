@@ -64,11 +64,6 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
     e.preventDefault()
     setIsLoading(true)
 
-    // if (username.length < 3) {
-    //   // You can show a message to the user or handle it in your UI
-    //   return;
-    // }
-
     const goofleFormObject = {
       username,
       telefone: phoneNumber,
@@ -76,6 +71,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
 
     const rawResponse = await fetch(
       'https://www.muitomaisquevarzea.com/api/submit',
+      // 'http://localhost:3000/api/submit',
       {
         method: 'POST',
         headers: {
@@ -88,8 +84,6 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
 
     try {
       const content = await rawResponse.json()
-      // console.log(content);
-      // console.log(content.data);
 
       if (content.data === undefined) {
         toast.error('O usuário já está cadastrado para o sorteio.')
@@ -108,6 +102,8 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
       setIsLoading(false)
     }
   }
+
+  const isValidNumberInput = (input: string) => /^\d*$/.test(input)
 
   useEffect(() => {
     setIsSubmitEnabled(username.length > 3)
@@ -165,21 +161,27 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                     {questionIndex === questions.length - 1 ? (
                       <form className="space-y-4" onSubmit={handleSubmit}>
                         <Input
+                          label="Digite seu nome de usuário"
                           isRequired
-                          size="sm"
+                          size="md"
                           type="text"
                           value={username}
                           onChange={(e) => setUsername(e.target.value)}
-                          placeholder="Digite seu nome de usuário"
-                          className="font-montserratLight text-white text-[13px] bg-[#333] border-none"
+                          className="font-montserratLight text-white text-[16px] bg-[#333] border-none"
                         />
                         <Input
-                          size="sm"
+                          label="Digite seu telefone"
+                          size="md"
                           type="text"
                           value={phoneNumber}
-                          onChange={(e) => setPhoneNumber(e.target.value)}
-                          placeholder="Digite seu telefone"
-                          className="font-montserratLight text-white text-[13px] bg-[#333] border-none"
+                          onChange={(e) => {
+                            const inputValue = e.target.value
+                            if (isValidNumberInput(inputValue)) {
+                              setPhoneNumber(inputValue)
+                            }
+                          }}
+                          inputMode="numeric"
+                          className="font-montserratLight text-white text-[16px] bg-[#333] border-none"
                         />
                         <Button
                           type="submit"
