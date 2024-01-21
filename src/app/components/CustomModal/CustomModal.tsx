@@ -15,6 +15,7 @@ import { questions } from '@/app/utils/questions'
 import { toast } from 'react-toastify'
 import finishformlogo from '../../../../public/finishformlogo.png'
 import Image from 'next/image'
+import golden from '../../../../public/golden.png'
 
 interface CustomModalProps {
   isOpen: boolean
@@ -187,7 +188,12 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                           type="submit"
                           isDisabled={!isSubmitEnabled}
                           size="sm"
-                          className="w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-white"
+                          className="w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-white hover:text-white"
+                          style={{
+                            backgroundImage: `url(${golden.src})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                          }}
                         >
                           ENVIAR{' '}
                           {isLoading && <Spinner color="default" size="sm" />}
@@ -257,7 +263,12 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                     <Button
                       onClick={handleNextQuestion}
                       size="sm"
-                      className="w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-white"
+                      className="w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-white hover:text-white"
+                      style={{
+                        backgroundImage: `url(${golden.src})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }}
                     >
                       AVANÇAR
                     </Button>
@@ -271,7 +282,12 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                     >
                       <Button
                         size="sm"
-                        className="w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-white"
+                        className="w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-white hover:text-white"
+                        style={{
+                          backgroundImage: `url(${golden.src})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }}
                       >
                         {questions[questionIndex].buttonContent}
                       </Button>
