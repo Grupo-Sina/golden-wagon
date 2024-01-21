@@ -31,6 +31,7 @@ module.exports = {
         headingHeavy: ['Heading Pro Trial Heavy', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
         montserratLight: ['Montserrat Light', 'sans-serif'],
+        montserratBold: ['Montserrat Bold', 'sans-serif'],
         robotoRegular: ['Roboto Regular', 'sans-serif'],
         robotoBold: ['Roboto Bold', 'sans-serif'],
       },
