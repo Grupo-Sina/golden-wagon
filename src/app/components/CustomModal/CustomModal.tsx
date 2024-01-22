@@ -71,8 +71,8 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
     }
 
     const rawResponse = await fetch(
-      // 'https://www.muitomaisquevarzea.com/api/submit',
-      'http://localhost:3000/api/submit',
+      'https://www.muitomaisquevarzea.com/api/submit',
+      // 'http://localhost:3000/api/submit',
       {
         method: 'POST',
         headers: {
