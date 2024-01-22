@@ -23,16 +23,17 @@ const Header = () => {
 
   return (
     <Navbar
+      position="static"
       maxWidth="2xl"
       onMenuOpenChange={setIsMenuOpen}
-      className="relative z-20 w-screen h-24 bg-[#C89A3D] flex justify-center"
+      className="relative z-20 w-screen h-24 bg-[#C89A3D] flex flex-row justify-center"
     >
       <NavbarMenuToggle
         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         className="sm:hidden text-white font-black"
       />
 
-      <NavbarMenu className="bg-[#C89A3D] z-40 mt-8">
+      <NavbarMenu className="flex bg-[#C89A3D] z-40 mt-8">
         <NavbarMenuItem>
           <Link
             onPress={onOpen}
