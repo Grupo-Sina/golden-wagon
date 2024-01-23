@@ -11,11 +11,11 @@ export default function Home() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
   return (
-    <main className="flex flex-col px-10 md:pl-36">
+    <main className=" flex flex-col px-10 md:pl-36">
       <Image
         src={goldenwagonlogo}
         alt="goldenwagonlogo"
-        className="my-4 mx-auto w-[400px] sm:w-[531px] md:mx-0"
+        className="my-4 mx-auto w-[291px] sm:w-[531px] md:mx-0"
       />
 
       <p className="w-full md:w-[50%] text-justify text-[#222222] font-robotoRegular text-[18px] sm:text-[24px] desktop:text-[32px]">
