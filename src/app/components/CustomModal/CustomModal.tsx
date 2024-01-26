@@ -16,6 +16,7 @@ import { toast } from 'react-toastify'
 import finishformlogo from '../../../../public/finishformlogo.png'
 import Image from 'next/image'
 import golden from '../../../../public/golden.png'
+import promoBanner from '../../../../public/promoBanner.svg'
 
 interface CustomModalProps {
   isOpen: boolean
@@ -61,51 +62,60 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
     }
   }
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+
+  //   const goofleFormObject = {
+  //     username,
+  //     telefone: phoneNumber,
+  //   };
+
+  //   const rawResponse = await fetch(
+  //     "https://www.muitomaisquevarzea.com/api/submit",
+  //     // 'http://localhost:3000/api/submit',
+  //     {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(goofleFormObject),
+  //     }
+  //   );
+
+  //   try {
+  //     const content = await rawResponse.json();
+
+  //     if (content.data === undefined) {
+  //       toast.error("O usuário já está cadastrado para o sorteio.");
+  //       setUsername("");
+  //       setPhoneNumber("");
+  //       setIsLoading(false);
+  //     } else {
+  //       toast.success("Usuário registrado para o sorteio com sucesso!!");
+  //       setUsername("");
+  //       setPhoneNumber("");
+  //       setIsLoading(false);
+  //       setSubmissionStatus("success");
+  //     }
+  //   } catch (error) {
+  //     toast.error("Erro ao processar a resposta do servidor.");
+  //     setIsLoading(false);
+  //   }
+  // };
+
+  // const isValidNumberInput = (input: string) =>
+  //   /^\d*$/.test(input) && input.length <= 11;
+
+  const handleParticipate = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    setIsLoading(true)
-
-    const goofleFormObject = {
-      username,
-      telefone: phoneNumber,
-    }
-
-    const rawResponse = await fetch(
-      'https://www.muitomaisquevarzea.com/api/submit',
-      // 'http://localhost:3000/api/submit',
-      {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(goofleFormObject),
-      },
+    window.open(
+      'https://www.esportesdasorte.com/ptb/authentication/signin?return=%2Fptb%2Fpages%2Fclube_eds',
+      '_blank',
     )
-
-    try {
-      const content = await rawResponse.json()
-
-      if (content.data === undefined) {
-        toast.error('O usuário já está cadastrado para o sorteio.')
-        setUsername('')
-        setPhoneNumber('')
-        setIsLoading(false)
-      } else {
-        toast.success('Usuário registrado para o sorteio com sucesso!!')
-        setUsername('')
-        setPhoneNumber('')
-        setIsLoading(false)
-        setSubmissionStatus('success')
-      }
-    } catch (error) {
-      toast.error('Erro ao processar a resposta do servidor.')
-      setIsLoading(false)
-    }
+    setSubmissionStatus('success')
   }
-
-  const isValidNumberInput = (input: string) =>
-    /^\d*$/.test(input) && input.length <= 11
 
   useEffect(() => {
     setIsSubmitEnabled(username.length > 3)
@@ -149,45 +159,33 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                   <p className="font-montserratLight text-[16px] text-white font-normal text-justify">
                     Para participar, é bem fácil! Você deve ter um cadastro na
                     Esportes da Sorte e ter feito, pelo menos, um depósito de
-                    R$2,00! Quanto mais depósitos você fizer, mais chances tem
-                    de ganhar!
+                    R$1,00! Depois, é so pegar o seu ticket para o sorteio!
                   </p>
-                  <p className="text-[#C89A3D] text-[16px] font-montserratBold">
-                    Responda as perguntas abaixo para confirmar sua
-                    participação.
-                  </p>
+                  {questionIndex === questions.length - 1 ? (
+                    <p className="text-[#C89A3D] font-montserratBold text-[16px] ">
+                      VOCÊ JÁ PODE PARTICIPAR!
+                    </p>
+                  ) : (
+                    <p className="text-[#C89A3D] text-[16px] font-montserratBold">
+                      Responda as perguntas abaixo para confirmar sua
+                      participação.
+                    </p>
+                  )}
+
                   <h1 className="text-[18px] font-montserratBold text-white">
                     {questions[questionIndex].content}
                   </h1>
                   <div className="flex flex-col space-y-1 text-white">
                     {questionIndex === questions.length - 1 ? (
-                      <form className="space-y-4" onSubmit={handleSubmit}>
-                        <Input
-                          label="Digite seu nome de usuário"
-                          isRequired
-                          size="md"
-                          type="text"
-                          value={username}
-                          onChange={(e) => setUsername(e.target.value)}
-                          className="font-montserratLight text-white text-[16px] bg-[#333] border-none"
-                        />
-                        <Input
-                          label="Digite seu telefone"
-                          size="md"
-                          type="text"
-                          value={phoneNumber}
-                          onChange={(e) => {
-                            const inputValue = e.target.value
-                            if (isValidNumberInput(inputValue)) {
-                              setPhoneNumber(inputValue)
-                            }
-                          }}
-                          inputMode="numeric"
-                          className="font-montserratLight text-white text-[16px] bg-[#333] border-none"
+                      <div className="space-y-4 flex flex-col justify-center items-center">
+                        <Image
+                          src={promoBanner}
+                          alt="promo Banner"
+                          className="w-full"
                         />
                         <Button
                           type="submit"
-                          isDisabled={!isSubmitEnabled}
+                          onClick={handleParticipate}
                           size="sm"
                           className="w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-white hover:text-white"
                           style={{
@@ -196,10 +194,9 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                             backgroundPosition: 'center',
                           }}
                         >
-                          ENVIAR{' '}
-                          {isLoading && <Spinner color="default" size="sm" />}
+                          PARTICIPAR{' '}
                         </Button>
-                      </form>
+                      </div>
                     ) : (
                       <>
                         <Checkbox
@@ -245,15 +242,32 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
               ) : (
                 <div className="space-y-6">
                   <p className="font-montserratLight text-[16px] text-white font-normal text-justify">
-                    Os sorteios vão rolar na abertura da{' '}
+                    Os sorteios vão rolar na{' '}
                     <span className="font-montserratBold">
-                      Super Copa Zona Leste no dia 25/01
-                    </span>
-                    , durante a live do Youtube, no canal da Várzea Ao Vivo,
-                    agora é só torcer! E não fica moscando! Quanto mais
-                    depósitos você fizer, mais chances tem de ganhar!
+                      terça-feira (30/01) pelo Clube da Sorte,
+                    </span>{' '}
+                    plataforma de sorteios seguros da Esportes da Sorte. E nem
+                    se preocupa, os vencedores receberão uma notificação no site
+                    da Esportes da Sorte e{' '}
+                    <span className="font-montserratBold">
+                      divulgaremos todos os 100 tickets vencedores tanto aqui
+                      como no Instagram da Super Copa Zona Leste.
+                    </span>{' '}
+                    Não fica aí moscando! Quanto mais depósitos você fizer, mais
+                    chances tem de ganhar!
                   </p>
-                  <Image src={finishformlogo} alt="finishformlogo" />
+                  <Button
+                    onPress={onClose}
+                    size="sm"
+                    className="w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-white hover:text-white"
+                    style={{
+                      backgroundImage: `url(${golden.src})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                    }}
+                  >
+                    FECHAR
+                  </Button>
                 </div>
               )}
             </ModalBody>
@@ -276,7 +290,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                   )}
                   {isNoChecked && (
                     <Link
-                      href="https://m.esportesdasorte.com/ptb"
+                      href={questions[questionIndex].redirectTo}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full"

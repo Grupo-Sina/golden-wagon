@@ -20,12 +20,10 @@ export default function Home() {
 
       <p className="w-full md:w-[50%] text-justify text-[#222222] font-robotoRegular text-[18px] sm:text-[24px] desktop:text-[32px]">
         A abertura da{' '}
-        <span className="font-robotoBold">Super Copa Zona Leste</span> tá
-        chegando daquele jeito! E pra ficar melhor ainda, você pode concorrer a{' '}
-        <span className="font-robotoBold">
-          1 Iphone e 10 bancas de R$10,00 na Esportes da Sorte!
-        </span>{' '}
-        Coisa linda!
+        <span className="font-robotoBold">Super Copa Zona Leste</span> chegou
+        daquele jeito! E pra ficar melhor ainda, você pode concorrer a{' '}
+        <span className="font-robotoBold">100 bancas de R$10,00</span> na
+        Esportes da Sorte! Coisa linda pra todo mundo ganhar!
       </p>
       <div className="button-container">
         <Button
