@@ -16,7 +16,7 @@ import { toast } from 'react-toastify'
 import finishformlogo from '../../../../public/finishformlogo.png'
 import Image from 'next/image'
 import golden from '../../../../public/golden.png'
-import promoBanner from '../../../../public/promoBanner.svg'
+import promoBanner from '../../../../public/promoBanner.png'
 
 interface CustomModalProps {
   isOpen: boolean
