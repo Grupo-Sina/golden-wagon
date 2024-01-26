@@ -110,10 +110,7 @@ const CustomModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
 
   const handleParticipate = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    window.open(
-      'https://www.esportesdasorte.com/ptb/authentication/signin?return=%2Fptb%2Fpages%2Fclube_eds',
-      '_blank',
-    )
+    window.open('https://www.esportesdasorte.com/ptb/pages/clube_eds', '_blank')
     setSubmissionStatus('success')
   }
 
