@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className="relative z-20 w-screen h-[140px] bg-[#222222] flex flex-col py-4 space-y-2 md:flex-row md:space-y-0 justify-around items-center">
+    <footer className="relative z-20 w-screen min-h-[140px] bg-[#222222] flex flex-col py-4 space-y-2 md:flex-row md:space-y-0 justify-around items-center">
       <Image
         src={edslogofooter}
         alt="edslogofooter"

@@ -15,10 +15,10 @@ export default function Home() {
       <Image
         src={goldenwagonlogo}
         alt="goldenwagonlogo"
-        className="my-4 mx-auto w-[291px] sm:w-[531px] md:mx-0"
+        className="my-4 mx-auto w-[291px] sm:w-[531px] md:mx-0 "
       />
 
-      <p className="w-full md:w-[50%] text-justify text-[#222222] font-robotoRegular text-[18px] sm:text-[24px] desktop:text-[32px]">
+      <p className="w-full md:w-[50%] md:min-w-[182px] text-justify text-[#222222] font-robotoRegular text-[18px] sm:text-[24px] desktop:text-[32px]">
         A abertura da{' '}
         <span className="font-robotoBold">Super Copa Zona Leste</span> chegou
         daquele jeito! E pra ficar melhor ainda, você pode concorrer a{' '}
