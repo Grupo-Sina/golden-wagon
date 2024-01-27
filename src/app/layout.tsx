@@ -11,7 +11,7 @@ import metro from '../../public/metro.png'
 import metromobile from '../../public/metromobile.png'
 import LayoutWrapper from './components/LayoutWrapper/LayoutWrapper'
 import leftSplash from '../../public/leftsplash.png'
-import rightSplash from '../../public/rightsplash.png'
+import rightSplash from '../../public/rightSplash.png'
 
 export const metadata: Metadata = {
   title: 'Vagão de Ouro - Esportes da Sorte na Várzea',
