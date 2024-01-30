@@ -6,6 +6,7 @@ import { Button, useDisclosure } from '@nextui-org/react'
 import CustomModal from './components/CustomModal/CustomModal'
 import goldenwagonlogo from '../../public/goldenwagonlogo.png'
 import golden from '../../public/golden.png'
+import RankingModal from './components/RankingModal/RankingModal'
 
 export default function Home() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
@@ -30,18 +31,18 @@ export default function Home() {
           onPress={onOpen}
           size="sm"
           radius="full"
-          className="my-6 w-full sm:w-[150px] bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-black hover:text-white mx-auto md:mx-0"
+          className="my-6 w-full sm:w-auto bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-black hover:text-white mx-auto md:mx-0"
           style={{
             backgroundImage: `url(${golden.src})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         >
-          PARTICIPE AGORA
+          CONFIRA OS TICKETS SORTEADOS
         </Button>
       </div>
 
-      <CustomModal isOpen={isOpen} onClose={onOpenChange} />
+      <RankingModal isOpen={isOpen} onClose={onOpenChange} />
     </main>
   )
 }
