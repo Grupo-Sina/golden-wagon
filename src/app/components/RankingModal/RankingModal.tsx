@@ -6,37 +6,37 @@ import {
   ModalFooter,
   ModalHeader,
   useDisclosure,
-} from "@nextui-org/react";
-import golden from "../../../../public/golden.png";
-import { useEffect, useState } from "react";
-import winnersJson from "../../utils/winners.json";
+} from '@nextui-org/react'
+import golden from '../../../../public/golden.png'
+import { useEffect, useState } from 'react'
+import winnersJson from '../../utils/winners.json'
 
 interface CustomModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen: boolean
+  onClose: () => void
 }
 
 interface WinnersProps {
-  id: number;
-  ticket: number;
+  id: number
+  ticket: number
 }
 
 const RankingModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
-  const { onOpen } = useDisclosure();
+  const { onOpen } = useDisclosure()
 
-  const [winners, setWinners] = useState<WinnersProps[]>([]);
+  const [winners, setWinners] = useState<WinnersProps[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setWinners(winnersJson);
+        setWinners(winnersJson)
       } catch (error) {
-        console.error("Erro ao carregar os dados dos vencedores:", error);
+        console.error('Erro ao carregar os dados dos vencedores:', error)
       }
-    };
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <Modal
@@ -69,7 +69,7 @@ const RankingModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
 
                 <hr
                   style={{
-                    borderTopColor: "rgba(255, 255, 255, 0.20)",
+                    borderTopColor: 'rgba(255, 255, 255, 0.20)',
                   }}
                 />
               </div>
@@ -81,7 +81,7 @@ const RankingModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                     </li>
                     <hr
                       style={{
-                        borderTopColor: "rgba(255, 255, 255, 0.20)",
+                        borderTopColor: 'rgba(255, 255, 255, 0.20)',
                       }}
                     />
                   </div>
@@ -96,8 +96,8 @@ const RankingModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
                 className="my-6 w-full bg-[#C89A3D] text-[#222222] py-3 px-8 font-headingBold text-[16px] hover:bg-black hover:text-white mx-auto md:mx-0"
                 style={{
                   backgroundImage: `url(${golden.src})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                 }}
               >
                 VOLTAR
@@ -107,7 +107,7 @@ const RankingModal: React.FC<CustomModalProps> = ({ isOpen, onClose }) => {
         )}
       </ModalContent>
     </Modal>
-  );
-};
+  )
+}
 
-export default RankingModal;
+export default RankingModal
